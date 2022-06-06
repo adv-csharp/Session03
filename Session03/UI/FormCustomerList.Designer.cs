@@ -36,7 +36,9 @@
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOBJalali = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsActive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,13 +55,16 @@
             this.Email,
             this.Address,
             this.DOB,
-            this.IsActive});
+            this.DOBJalali,
+            this.IsActive,
+            this.Delete});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(936, 399);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ID
             // 
@@ -110,6 +115,14 @@
             this.DOB.HeaderText = "تاریخ تولد";
             this.DOB.Name = "DOB";
             this.DOB.ReadOnly = true;
+            this.DOB.Visible = false;
+            // 
+            // DOBJalali
+            // 
+            this.DOBJalali.DataPropertyName = "DOBJalali";
+            this.DOBJalali.HeaderText = "تاریخ تولد";
+            this.DOBJalali.Name = "DOBJalali";
+            this.DOBJalali.ReadOnly = true;
             // 
             // IsActive
             // 
@@ -117,6 +130,14 @@
             this.IsActive.HeaderText = "فعال";
             this.IsActive.Name = "IsActive";
             this.IsActive.ReadOnly = true;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "حذف";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "حذف";
+            this.Delete.UseColumnTextForButtonValue = true;
             // 
             // FormCustomerList
             // 
@@ -142,6 +163,8 @@
         private DataGridViewTextBoxColumn Email;
         private DataGridViewTextBoxColumn Address;
         private DataGridViewTextBoxColumn DOB;
+        private DataGridViewTextBoxColumn DOBJalali;
         private DataGridViewTextBoxColumn IsActive;
+        private DataGridViewButtonColumn Delete;
     }
 }

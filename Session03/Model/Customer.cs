@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Session03.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace Session03.Model
         public string LastName { get; set; }
         public string NationalCode { get; set; }
         public DateTime DOB { get; set; }
+        public string DOBJalali { get => DOB.ToJalali();  }
         public string Address { get; set; }
         public string Email { get; set; }
         public bool IsActive { get; set; }

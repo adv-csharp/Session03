@@ -1,4 +1,5 @@
 ﻿using Session03.Model;
+using Session03.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -139,10 +140,13 @@ namespace Session03.Service
                     Email = reader["Email"].ToString(),
                     Address = reader["Address"].ToString(),
                     NationalCode = reader["NationalCode"].ToString(),
-                    DOB = Convert.ToDateTime(reader["DOB"]),
+                    DOB = Convert.ToDateTime(reader["DOB"]),                    
                     Id = Convert.ToInt32(reader["Id"]),
                     IsActive = Convert.ToBoolean(reader["IsActive"]),
                 });
+
+                //Reflection
+                //Framework Object Relational Mapper
             }
             conn.Close();
             return result;
@@ -155,7 +159,18 @@ namespace Session03.Service
 
         public void Delete(int id)
         {
+            using var conn = new SqlConnection(connStr);
+            using var command = new SqlCommand();
+            command.Connection = conn;
 
+            command.CommandText = @"sp_Customer_Delete";
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("id", id);
+
+            conn.Open();
+            command.ExecuteNonQuery();
+            conn.Close();
         }
     }
 }
