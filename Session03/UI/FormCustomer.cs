@@ -35,5 +35,22 @@ namespace Session03.UI
             service.Create(customer);
             MessageBox.Show("Customer Created🎉");
         }
+
+        private void btnSaveSP_Click(object sender, EventArgs e)
+        {
+            var customer = new Customer
+            {
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                Address = txtAddress.Text,
+                Email = txtEmail.Text,
+                NationalCode = txtNationlCode.Text,
+                DOB = dateTimePickerDOB.Value,
+                IsActive = checkBoxActive.Checked,
+            };
+            var service = new CustomerService();
+            service.CreateSP(customer);
+            MessageBox.Show("Customer Created🎉");
+        }
     }
 }

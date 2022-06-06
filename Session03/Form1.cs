@@ -11,7 +11,16 @@ namespace Session03
 
         private void btnCreateCustomer_Click(object sender, EventArgs e)
         {
-            var form = new FormCustomer();
+            ShowForm(new FormCustomer());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ShowForm(new FormCustomerList());
+        }
+
+        private void ShowForm(Form form)
+        {
             form.ShowDialog();
         }
     }

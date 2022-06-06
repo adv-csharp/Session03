@@ -10,6 +10,8 @@ namespace Session03.Service
 {
     public class CustomerService
     {
+        const string connStr = "Server=.;Database=140102;Trusted_Connection=True;";
+
         //CRUD
 
         public void Create(Customer model)
@@ -89,6 +91,61 @@ namespace Session03.Service
             command.ExecuteNonQuery();
             conn.Close();
 
+        }
+
+        //Databse First
+        public void CreateSP(Customer model)
+        {
+            //https://downloadly.ir/software/programming/ssms-tools-pack/
+            
+            using var conn = new SqlConnection(connStr);
+            using var command = new SqlCommand();
+            command.Connection = conn;
+           
+            command.CommandText = @"sp_Customer_Insert";
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("FirstName", model.FirstName);
+            command.Parameters.AddWithValue("LastName", model.LastName);
+            command.Parameters.AddWithValue("NationalCode", model.NationalCode);
+            command.Parameters.AddWithValue("DOB", model.DOB);
+            command.Parameters.AddWithValue("Address", model.Address);
+            command.Parameters.AddWithValue("Email", model.Email);
+            command.Parameters.AddWithValue("IsActive", model.IsActive);
+
+            conn.Open();
+            command.ExecuteNonQuery();
+            conn.Close();
+
+        }
+
+
+        public  List<Customer> ReadDataSqlReader()
+        {
+            var result = new List<Customer>();
+
+            using var conn = new SqlConnection(connStr);
+            using var command =  new SqlCommand();
+            command.Connection = conn;
+            command.CommandText = "select * from [dbo].[Customer]";
+            conn.Open();
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                result.Add(new Customer
+                {
+                    FirstName = reader["FirstName"].ToString(),
+                    LastName = reader["LastName"].ToString(),
+                    Email = reader["Email"].ToString(),
+                    Address = reader["Address"].ToString(),
+                    NationalCode = reader["NationalCode"].ToString(),
+                    DOB = Convert.ToDateTime(reader["DOB"]),
+                    Id = Convert.ToInt32(reader["Id"]),
+                    IsActive = Convert.ToBoolean(reader["IsActive"]),
+                });
+            }
+            conn.Close();
+            return result;
         }
 
         public void Update(int id, Customer model)

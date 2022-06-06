@@ -42,6 +42,7 @@
             this.dateTimePickerDOB = new System.Windows.Forms.DateTimePicker();
             this.checkBoxActive = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnSaveSP = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -152,7 +153,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(302, 271);
+            this.btnSave.Location = new System.Drawing.Point(221, 269);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 16;
@@ -160,11 +161,22 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // btnSaveSP
+            // 
+            this.btnSaveSP.Location = new System.Drawing.Point(302, 269);
+            this.btnSaveSP.Name = "btnSaveSP";
+            this.btnSaveSP.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveSP.TabIndex = 17;
+            this.btnSaveSP.Text = "Save SP";
+            this.btnSaveSP.UseVisualStyleBackColor = true;
+            this.btnSaveSP.Click += new System.EventHandler(this.btnSaveSP_Click);
+            // 
             // FormCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 316);
+            this.Controls.Add(this.btnSaveSP);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.checkBoxActive);
             this.Controls.Add(this.dateTimePickerDOB);
@@ -202,5 +214,6 @@
         private DateTimePicker dateTimePickerDOB;
         private CheckBox checkBoxActive;
         private Button btnSave;
+        private Button btnSaveSP;
     }
 }
