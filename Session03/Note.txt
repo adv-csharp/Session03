@@ -1,0 +1,61 @@
+﻿DateBase
+	Table ->  (c# class)
+		coulmn -> (C# property)
+			name
+				PascalCase
+			date type
+			null?
+			key - (primary, unique, forign key)
+
+	PK - primary key
+		int -> auto increment, bTree*
+		unique
+		name
+			-> id
+			-> <table>_id, <table>Id
+		GUID
+			random
+			cluster index
+
+			ULID
+
+	Dara Type
+		string -> 
+			char, nchar	
+				char(10) 10byte
+				nchar(10) 10*2 20byte
+			varchar, nvarchar
+
+			nationalCode ? char(11)
+
+			name char(10)
+			name varchr(10)
+
+		number
+			int,
+			bitint
+			float
+			smallint
+
+			byte 0-255
+			
+		boolean
+			bit
+
+
+
+
+CRUD
+	Create		-> sql: insert 
+	Read		-> sql: select
+	Update		-> sql: update
+	Delete		-> sql: delete
+
+
+Database Access
+	ADO.Net
+
+	Framework/Library
+		ORM -> EntityFramwork 
+		Micro -> Dapper
+
