@@ -30,6 +30,7 @@
         {
             this.btnCreateCustomer = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnLinqExamples = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCreateCustomer
@@ -52,11 +53,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnLinqExamples
+            // 
+            this.btnLinqExamples.Location = new System.Drawing.Point(12, 160);
+            this.btnLinqExamples.Name = "btnLinqExamples";
+            this.btnLinqExamples.Size = new System.Drawing.Size(154, 23);
+            this.btnLinqExamples.TabIndex = 2;
+            this.btnLinqExamples.Text = "Linq examples";
+            this.btnLinqExamples.UseVisualStyleBackColor = true;
+            this.btnLinqExamples.Click += new System.EventHandler(this.btnLinqExamples_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(539, 294);
+            this.Controls.Add(this.btnLinqExamples);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCreateCustomer);
             this.Name = "Form1";
@@ -69,5 +81,6 @@
 
         private Button btnCreateCustomer;
         private Button button1;
+        private Button btnLinqExamples;
     }
 }

@@ -23,5 +23,10 @@ namespace Session03
         {
             form.ShowDialog();
         }
+
+        private void btnLinqExamples_Click(object sender, EventArgs e)
+        {
+            ShowForm(new FormLinq());
+        }
     }
 }
