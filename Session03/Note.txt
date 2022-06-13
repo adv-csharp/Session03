@@ -59,3 +59,7 @@ Database Access
 		ORM -> EntityFramwork 
 		Micro -> Dapper
 
+
+	EntityFramwork 
+		Database First (.net framework ✔) (.net ❌)
+		Code First

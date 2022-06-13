@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Session03", "Session03\Session03.csproj", "{65C8D65C-D9CF-4776-8412-134CC6E7F820}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Session03", "Session03\Session03.csproj", "{65C8D65C-D9CF-4776-8412-134CC6E7F820}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDatabaseFirst", "EFDatabaseFirst\EFDatabaseFirst.csproj", "{39CFB6CF-EF33-4A53-B9F6-ECA4DF2196CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{65C8D65C-D9CF-4776-8412-134CC6E7F820}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65C8D65C-D9CF-4776-8412-134CC6E7F820}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65C8D65C-D9CF-4776-8412-134CC6E7F820}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39CFB6CF-EF33-4A53-B9F6-ECA4DF2196CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39CFB6CF-EF33-4A53-B9F6-ECA4DF2196CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39CFB6CF-EF33-4A53-B9F6-ECA4DF2196CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39CFB6CF-EF33-4A53-B9F6-ECA4DF2196CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
