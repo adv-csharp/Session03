@@ -31,6 +31,9 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnLinqSample1 = new System.Windows.Forms.Button();
             this.btnLinqLambda = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnLinqProducts = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
@@ -62,17 +65,39 @@
             this.btnLinqLambda.UseVisualStyleBackColor = true;
             this.btnLinqLambda.Click += new System.EventHandler(this.btnLinqLambda_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(144, 267);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(959, 255);
+            this.dataGridView1.TabIndex = 3;
+            // 
+            // btnLinqProducts
+            // 
+            this.btnLinqProducts.Location = new System.Drawing.Point(22, 267);
+            this.btnLinqProducts.Name = "btnLinqProducts";
+            this.btnLinqProducts.Size = new System.Drawing.Size(100, 23);
+            this.btnLinqProducts.TabIndex = 4;
+            this.btnLinqProducts.Text = "Linq Products";
+            this.btnLinqProducts.UseVisualStyleBackColor = true;
+            this.btnLinqProducts.Click += new System.EventHandler(this.btnLinqProducts_Click);
+            // 
             // FormLinq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 534);
+            this.ClientSize = new System.Drawing.Size(1115, 534);
+            this.Controls.Add(this.btnLinqProducts);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnLinqLambda);
             this.Controls.Add(this.btnLinqSample1);
             this.Controls.Add(this.listBox1);
             this.Name = "FormLinq";
             this.Text = "FornLinq";
             this.Load += new System.EventHandler(this.FornLinq_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -82,5 +107,7 @@
         private ListBox listBox1;
         private Button btnLinqSample1;
         private Button btnLinqLambda;
+        private DataGridView dataGridView1;
+        private Button btnLinqProducts;
     }
 }

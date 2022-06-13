@@ -18,7 +18,13 @@ namespace Session03.UI
             InitializeComponent();
         }
 
-        private List<Product> Products = new List<Product> { };
+        private List<Product> Products = new List<Product> {
+            new Product {Id= 1, Name ="PC 1", Date = DateTime.Now.Subtract(TimeSpan.FromDays(-2)), Price= 1000, InStock = false},
+            new Product {Id= 1, Name ="PC 2", Date = DateTime.Now.Subtract(TimeSpan.FromDays(-5)), Price= 1800, InStock = true},
+            new Product {Id= 1, Name ="Monitor 1", Date = DateTime.Now.Subtract(TimeSpan.FromDays(-1)), Price= 1300, InStock = true},
+            new Product {Id= 1, Name ="Monitor 2", Date = DateTime.Now.Subtract(TimeSpan.FromDays(-10)), Price= 200, InStock = true},
+            new Product {Id= 1, Name ="Mouse", Date = DateTime.Now.Subtract(TimeSpan.FromDays(-200)), Price= 330, InStock = true},
+        };
 
         private void btnLinqSample1_Click(object sender, EventArgs e)
         {
@@ -95,6 +101,38 @@ namespace Session03.UI
         {
             listBox1.Items.Clear();
             listBox1.Items.AddRange(list.Cast<object>().ToArray());
+        }
+
+        private void btnLinqProducts_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = Products.Where(p => p.InStock).ToList();
+
+            /**
+             * 1. sort by date
+             * 2. sort instock, date
+             * 3. sort price
+             * 4. price < 1000
+             * 5. select name, price
+             * 
+             */
+
+            //1
+            dataGridView1.DataSource = Products.OrderBy(x=>x.Date).ToList();
+
+            //2
+            dataGridView1.DataSource = Products.OrderBy(x=>x.InStock).OrderBy(x => x.Date).ToList();
+
+            //3
+            dataGridView1.DataSource = Products.OrderBy(x => x.Price).ToList();
+
+            //4
+            dataGridView1.DataSource = Products.Where(x=>x.Price<=1000).ToList();
+
+            //5
+            dataGridView1.DataSource = Products.Select(x => new {Name = x.Name, Price = x.Price }).ToList();
+
+
+            //https://linqsamples.com/
         }
     }
 }
