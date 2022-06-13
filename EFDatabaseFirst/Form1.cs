@@ -37,11 +37,13 @@ namespace EFDatabaseFirst
             using (var db = new Northwind2Entities())
             {
                 var catId = Convert.ToInt32(comboBoxCategory.SelectedValue);
-                dataGridView1.DataSource = db.Products
-                    .Include(x => x.Category)
-                    .Where(x => x.UnitPrice > 10 )
-                    .Where(x => x.CategoryID == catId)
-                    .ToList();
+
+                //linq lazy
+                var query = db.Products.AsQueryable();
+                query = query.Where(x => x.UnitPrice > 10);                                
+                query = query.Where(x => x.CategoryID == catId);
+
+                dataGridView1.DataSource = query.ToList();
             }
         }
     }
