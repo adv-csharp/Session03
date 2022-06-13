@@ -153,6 +153,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Enabled = false;
             this.btnSave.Location = new System.Drawing.Point(221, 269);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
@@ -193,6 +194,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormCustomer";
             this.Text = "FormCustomer";
+            this.Load += new System.EventHandler(this.FormCustomer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

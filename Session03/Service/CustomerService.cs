@@ -154,7 +154,56 @@ namespace Session03.Service
 
         public void Update(int id, Customer model)
         {
+            using var conn = new SqlConnection(connStr);
+            using var command = new SqlCommand();
+            command.Connection = conn;
 
+            command.CommandText = @"sp_Customer_Update";
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("id", id);
+            command.Parameters.AddWithValue("FirstName", model.FirstName);
+            command.Parameters.AddWithValue("LastName", model.LastName);
+            command.Parameters.AddWithValue("NationalCode", model.NationalCode);
+            command.Parameters.AddWithValue("DOB", model.DOB);
+            command.Parameters.AddWithValue("Address", model.Address);
+            command.Parameters.AddWithValue("Email", model.Email);
+            command.Parameters.AddWithValue("IsActive", model.IsActive);
+
+            conn.Open();
+            command.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public Customer FindById(int id)
+        {
+            using var conn = new SqlConnection(connStr);
+            using var command = new SqlCommand();
+            command.Connection = conn;
+
+            command.CommandText = @"sp_Customer_Select";
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("Id", id);
+
+            conn.Open();
+            var reader = command.ExecuteReader();
+            reader.Read();
+            var result = new Customer
+            {
+                FirstName = reader["FirstName"].ToString(),
+                LastName = reader["LastName"].ToString(),
+                Email = reader["Email"].ToString(),
+                Address = reader["Address"].ToString(),
+                NationalCode = reader["NationalCode"].ToString(),
+                DOB = Convert.ToDateTime(reader["DOB"]),
+                Id = Convert.ToInt32(reader["Id"]),
+                IsActive = Convert.ToBoolean(reader["IsActive"]),
+            };
+
+            conn.Close();
+
+            return result;
         }
 
         public void Delete(int id)

@@ -31,14 +31,22 @@ namespace Session03.UI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            var id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Id"].Value);
             if (dataGridView1.CurrentCell.OwningColumn.Name == "Delete")
             {
                 if (MessageBox.Show("مطمئنی؟", "حذف", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    var id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Id"].Value);
                     service.Delete(id);
                     refreshGrid();
-                    MessageBox.Show("🤷");                    
+                    MessageBox.Show("🤷");
+                }
+            }
+            if (dataGridView1.CurrentCell.OwningColumn.Name == "Edit")
+            {
+                var frm = new FormCustomer(id);
+                if(frm.ShowDialog() == DialogResult.OK)
+                {
+                    refreshGrid();
                 }
             }
         }
